@@ -1,0 +1,52 @@
+{% extends 'layout.html' %}
+
+{% block title %}Show files{% endblock %}
+
+{% block content %}
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <style>
+.success {
+    color: green
+}
+
+
+    </style>
+</head>
+<body>
+<br><br>
+
+<div align="center">
+    <div class="container-fluid ">
+
+
+
+        <h5 class="text-primary">Upload files</h5>
+        <p>You can upload multiple files also</p>
+        <hr>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% for category, message in messages %}
+        <div class="{{ category }}">{{ message }}</div>
+        {% endfor %}
+        {% endwith %}
+        <br>
+
+        <form method="post" action="/upload" enctype="multipart/form-data">
+            <p>
+                <input type="file" name="files[]" multiple="true" autocomplete="off" class="btn btn-dark">
+                <input type="submit" value="Submit" class="btn btn-success">
+            </p>
+        </form>
+    </div>
+</div>
+
+
+{% endblock %}
