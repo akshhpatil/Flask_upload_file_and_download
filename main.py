@@ -21,7 +21,7 @@ def allowed_file(filename):
 
 
 
-# download all files finction
+# download all files function
 @app.route("/files/<path:path>")
 def get_file(path):
     """Download a file."""
